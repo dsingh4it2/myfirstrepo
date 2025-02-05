@@ -1,0 +1,29 @@
+name: Run Helloworld Script
+
+on:
+  push:
+    branches:
+      - main  # Runs the workflow when pushing to the main branch
+  pull_request:
+    branches:
+      - main  # Runs when a pull request is created/updated
+  workflow_dispatch:  # Enables manual execution from the GitHub Actions tab
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest  # Uses the latest Ubuntu environment
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # Clones your repository
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Use the latest Python 3 version
+
+      - name: Install Dependencies (if required)
+        run: pip install -r requirements.txt || echo "No dependencies found"
+
+      - name: Run Python Script
+        run: python helloworld.py
