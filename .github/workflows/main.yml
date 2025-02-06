@@ -41,4 +41,4 @@ jobs:
           python-version: '3.x'  # Use the latest Python 3 version
 
       - name: Run greet Script
-         run: python greet.py
+        run: python greet.py
