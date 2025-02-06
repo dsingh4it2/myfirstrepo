@@ -28,7 +28,7 @@ jobs:
       - name: Run Python Script
         run: python helloworld.py
 
- greet-script:
+  greet-script:
     runs-on: ubuntu-latest  # Uses the latest Ubuntu environment
 
     steps:
